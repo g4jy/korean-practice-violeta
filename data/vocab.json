@@ -258,15 +258,15 @@
     ],
     "adjectives": [
       {
-        "id": "like",
-        "kr": "좋아해요",
-        "rom": "JO-A-HAE-YO",
-        "en": "like",
-        "sentenceEn": "liked",
+        "id": "good",
+        "kr": "좋아요",
+        "rom": "JO-A-YO",
+        "en": "good",
         "compatibleSubjects": [
           "food",
           "drink",
-          "activity"
+          "activity",
+          "weather"
         ]
       },
       {
@@ -318,38 +318,10 @@
         ]
       },
       {
-        "id": "tired",
-        "kr": "피곤해요",
-        "rom": "PI-GON-HAE-YO",
-        "en": "tiring",
-        "compatibleSubjects": [
-          "activity"
-        ]
-      },
-      {
-        "id": "hungry",
-        "kr": "배고파요",
-        "rom": "BAE-GO-PA-YO",
-        "en": "hungry (makes me)",
-        "compatibleSubjects": [
-          "activity"
-        ]
-      },
-      {
-        "id": "busy",
-        "kr": "바빠요",
-        "rom": "BA-PPA-YO",
-        "en": "busy",
-        "compatibleSubjects": [
-          "activity"
-        ]
-      },
-      {
         "id": "dislike",
-        "kr": "싫어해요",
-        "rom": "SI-REO-HAE-YO",
-        "en": "dislike",
-        "sentenceEn": "disliked",
+        "kr": "싫어요",
+        "rom": "SI-REO-YO",
+        "en": "bad/disliked",
         "compatibleSubjects": [
           "food",
           "drink",
