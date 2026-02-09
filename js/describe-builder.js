@@ -84,7 +84,7 @@
     }
 
     krParts.push(adj.kr);
-    enParts.push(adj.en);
+    enParts.push(adj.sentenceEn || adj.en);
 
     document.getElementById('full-sentence').textContent = krParts.join(' ');
     document.getElementById('translation').textContent = enParts.join(' ');
@@ -102,12 +102,23 @@
   });
 
   blocks.adjective.addEventListener('click', () => {
+    // Save current subject before adjective change
+    const prevCompat = compatibleSubjects();
+    const prevSubj = prevCompat[state.subjectIdx];
+
     state.adjectiveIdx = (state.adjectiveIdx + 1) % adjectives.length;
     App.pulseBlock(blocks.adjective);
     const adj = adjectives[state.adjectiveIdx];
     App.speak(adj.kr);
-    // Reset subject to first compatible
-    state.subjectIdx = 0;
+
+    // Keep current subject if still compatible, otherwise reset
+    const newCompat = compatibleSubjects();
+    if (prevSubj) {
+      const kept = newCompat.findIndex(s => s.kr === prevSubj.kr);
+      state.subjectIdx = kept >= 0 ? kept : 0;
+    } else {
+      state.subjectIdx = 0;
+    }
     update();
   });
 

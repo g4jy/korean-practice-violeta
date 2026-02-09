@@ -114,7 +114,8 @@
       parts.push(obj.kr + particle);
       enParts = [subj.en, time.en + ',', 'at ' + place.en + ',', conj.en, obj.en];
     } else {
-      enParts = [subj.en, time.en + ',', conj.en, 'to ' + place.en];
+      const prep = verb.placeParticle === 'e' ? 'to' : 'at';
+      enParts = [subj.en, time.en + ',', conj.en, prep + ' ' + place.en];
     }
     parts.push(conj.kr);
 
