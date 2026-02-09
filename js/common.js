@@ -70,12 +70,33 @@ const App = (() => {
     el.classList.add('pulse');
   }
 
+  /* --- Romanization Toggle --- */
+  function initRomToggle() {
+    const btn = document.getElementById('toggle-rom');
+    if (!btn) return;
+    const stored = localStorage.getItem('showRom');
+    if (stored === 'false') {
+      document.body.classList.add('hide-rom');
+      btn.textContent = 'Aa Show Romanization';
+      btn.classList.remove('active');
+    } else {
+      btn.classList.add('active');
+    }
+    btn.addEventListener('click', () => {
+      const hidden = document.body.classList.toggle('hide-rom');
+      btn.textContent = hidden ? 'Aa Show Romanization' : 'Aa Hide Romanization';
+      btn.classList.toggle('active', !hidden);
+      localStorage.setItem('showRom', !hidden);
+    });
+  }
+
   /* --- Init --- */
   async function init() {
     if ('speechSynthesis' in window) {
       speechSynthesis.getVoices();
     }
     await loadAudioManifest();
+    initRomToggle();
   }
 
   if (document.readyState === 'loading') {

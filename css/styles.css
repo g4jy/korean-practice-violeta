@@ -274,6 +274,28 @@ body {
 .btn-adverb:hover { opacity: 0.85; }
 .btn-adverb.active { background: var(--text-light); }
 
+/* --- Romanization Toggle --- */
+.rom-toggle {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.btn-rom {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 2px solid var(--border);
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.btn-rom:hover { border-color: var(--primary-light); }
+.btn-rom.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+body.hide-rom .block-rom { display: none !important; }
+
 /* --- Utilities --- */
 .hidden { display: none !important; }
 
